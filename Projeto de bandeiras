@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Estados | Site</title>
+</head>
+<body>
+    <span class="page-title">Estados <br> Brasileiros</span>
+    <div class="head">
+        <h1>Republica Federativa do Brasil</h1>
+        <img src="images/flags/Brasil.png">
+        <h2>Distrito Federal</h2>
+        <img src="images/flags/DF.png">
+    </div>
+    <div class="container">
+        <h3 class="select-name">Selecione o estado</h3>
+        <div class="select">
+            <select name="initials" id="selected-initial" onChange="updateInput()">
+                <optgroup label="Norte">
+                    <option value="ACRE" label="AC">RIO BRANCO</option>
+                    <option value="AMAPÁ" label="AP">MACAPÁ</option>
+                    <option value="AMAZONAS" label="AM">MANAUS</option>
+                    <option value="PARÁ" label="PA">BELÉM</option>
+                    <option value="RONDÔNIA" label="RO">PORTO VELHO</option>
+                    <option value="RORAIMA" label="RR">BOA VISTA</option>
+                    <option value="TOCANTINS" label="TO">PALMAS</option>
+                </optgroup>
+                <optgroup label="Nordeste">
+                    <option value="ALAGOAS" label="AL">MACEIÓ</option>
+                    <option value="BAHIA" label="BA">SALVADOR</option>
+                    <option value="CEARÁ" label="CE">FORTALEZA</option>
+                    <option value="MARANHÃO" label="MA">SÃO LUÍS</option>
+                    <option value="PARAÍBA" label="PB">JOÃO PESSOA</option>
+                    <option value="PERNAMBUCO" label="PE">RECIFE</option>
+                    <option value="PIAUÍ" label="PI">TERESINA</option>
+                    <option value="RIO GRANDE DO NORTE" label="RN">NATAL</option>
+                    <option value="SERGIPE" label="SE">ARACAJU</option>
+                </optgroup>
+                <optgroup label="Centro-oeste">
+                    <option value="GOIÁS" label="GO">GOIÂNIA</option>
+                    <option value="MATO GROSSO" label="MT">CUIABÁ</option>
+                    <option value="MATO GROSSO DO SUL" label="MS">CAMPO GRANDE</option>
+                </optgroup>
+                <optgroup label="Sudeste">
+                    <option value="ESPÍRITO SANTO" label="ES">VITÓRIA</option>
+                    <option value="MINAS GERAIS" label="MG">BELO HORIZONTE</option>
+                    <option value="RIO DE JANEIRO" label="RJ">RIO DE JANEIRO</option>
+                    <option value="SÃO PAULO" label="SP">SÃO PAULO</option>
+                </optgroup>
+                <optgroup label="Sul">
+                    <option value="PARANÁ" label="PR">CURITIBA</option>
+                    <option value="SANTA CATARINA" label="SC">FLORIANÓPOLIS</option>
+                    <option value="RIO GRANDE DO SUL" label="RS">PORTO ALEGRE</option>
+                </optgroup>
+            </select>
+        </div>
+        <input type="text" id="selected-state" readonly>
+	    <input type="text" id="selected-capital" readonly>
+        <input type="submit" value="Enviar" onclick="tableFunction()">
+    </div>
+    <table id="custom-table">
+        <thead>
+            <tr>
+                <th>Sigla</th>
+                <th>Estado</th>
+                <th>Capital</th>
+                <th>Bandeira</th>
+            </tr>
+        </thead>
+        <tbody id="custom-tbody">
+            <!--javascript: tr e td-->
+        </tbody>
+        <tfoot id="custom-tfoot">
+            <tr id="custom-tfoot-tr-1">
+                <td colspan="3">Inseridos</td>
+                <!--javascript: td-->
+            </tr>
+            <tr id="custom-tfoot-tr-2">
+                <td colspan="3">Faltam</td>
+                <!--javascript: td-->
+            </tr>
+        </tfoot>
+    </table>
+    <script src="script.js"></script>
+</body>
+</html>
