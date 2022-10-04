@@ -84,6 +84,144 @@
             </tr>
         </tfoot>
     </table>
-    <script src="script.js"></script>
+    <script>
+    //função para mudar o input a partir do select//
+
+function updateInput() {
+
+    var select = document.getElementById("selected-initial");
+
+    var option = select.options[select.selectedIndex];
+
+    document.getElementById("selected-state").value = option.value;
+
+    document.getElementById("selected-capital").value = option.text;
+
+}
+
+updateInput();
+
+//função para tabela//
+
+function tableFunction() {
+
+    //sigla selecionada//
+
+    var initialIndex = document.getElementById("selected-initial").selectedIndex;
+
+    var initialTable = (document.getElementsByTagName("option")[initialIndex].label);
+
+    //estado e capital//
+
+    var select = document.getElementById("selected-initial");
+
+    var option = select.options[select.selectedIndex];
+
+    stateTable = option.value;
+
+    capitalTable = option.text;
+
+    //bandeira//
+
+    imgSrc = "images/flags/" + initialTable + ".png";
+
+    const flagTable = document.createElement("img");
+
+    flagTable.setAttribute("src", imgSrc);
+
+    //nº de linhas da tabela//
+
+    let tableRows = (document.getElementById("custom-table").rows.length) - 2;
+
+    //não-repetição//
+
+    for(i = 0; i <= tableRows; i++) {
+
+        var valueFromTable = document.getElementById("custom-table").rows[i].cells[0].innerHTML;
+
+        console.log(valueFromTable)
+
+        if (valueFromTable == initialTable) {
+
+            alert("Este estado ja foi inserido");
+
+            return;
+
+        }
+
+    }
+
+    document.getElementById("inserted-number").innerHTML = tableRows
+
+    //nº de estados que faltam para chegar a 0//
+
+    let toReach = 26 - tableRows;
+
+    document.getElementById("reach-number").innerHTML = toReach;
+
+    //criando tabela a partir da variável//
+
+    let row2 = document.createElement("tr");
+
+    let row2Data1 = document.createElement("td");
+
+    row2Data1.innerHTML = initialTable;
+
+    let row2Data2 = document.createElement("td");
+
+    row2Data2.innerHTML = stateTable;
+
+    let row2Data3 = document.createElement("td");
+
+    row2Data3.innerHTML = capitalTable;
+
+    let row2Data4 = document.createElement("td");
+
+    row2Data4.innerHTML = flagTable.outerHTML;
+
+    row2.appendChild(row2Data1);
+
+    row2.appendChild(row2Data2);
+
+    row2.appendChild(row2Data3);
+
+    row2.appendChild(row2Data4);
+
+    tbody.appendChild(row2);
+
+}
+
+let table = document.getElementById("custom-table");
+
+let tbody = document.getElementById("custom-tbody");
+
+let tfoot = document.getElementById("custom-tfoot");
+
+let row3 = document.getElementById("custom-tfoot-tr-1");
+
+let row3Data2 = document.createElement("td")
+
+row3Data2.setAttribute("id", "inserted-number")
+
+row3Data2.innerHTML = "0";
+
+row3.appendChild(row3Data2);
+
+let row4 = document.getElementById("custom-tfoot-tr-2");
+
+let row4Data2 = document.createElement("td")
+
+row4Data2.setAttribute("id", "reach-number")
+
+row4Data2.innerHTML = "26"
+
+row4.appendChild(row4Data2);
+
+tfoot.appendChild(row4)
+
+table.appendChild(tbody);
+
+table.appendChild(tfoot);
+    </script>
 </body>
 </html>
